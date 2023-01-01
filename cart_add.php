@@ -2,7 +2,7 @@
 	include 'includes/session.php';
 
 	$conn = $pdo->open();
-
+//if the output occur an error show  thats is false//
 	$output = array('error'=>false);
 
 	$id = $_POST['id'];
@@ -19,6 +19,8 @@
 				$output['message'] = 'Item added to cart';
 				
 			}
+			
+			// if the error not  occur then message print to  true//
 			catch(PDOException $e){
 				$output['error'] = true;
 				$output['message'] = $e->getMessage();
@@ -33,7 +35,7 @@
 		if(!isset($_SESSION['cart'])){
 			$_SESSION['cart'] = array();
 		}
-
+// if the session occur correct then exist//
 		$exist = array();
 
 		foreach($_SESSION['cart'] as $row){
@@ -45,6 +47,7 @@
 			$output['message'] = 'Product already in cart';
 		}
 		else{
+			//search item from id //
 			$data['productid'] = $id;
 			$data['quantity'] = $quantity;
 
