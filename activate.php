@@ -2,6 +2,7 @@
 <?php
 	$output = '';
 	if(!isset($_GET['code']) OR !isset($_GET['user'])){
+		//code from user//
 		$output .= '
 			<div class="alert alert-danger">
                 <h4><i class="icon fa fa-warning"></i> Error!</h4>
@@ -24,6 +25,7 @@
 		                <h4><i class="icon fa fa-warning"></i> Error!</h4>
 		                Account already activated.
 		            </div>
+			    //login to home page//
 		            <h4>You may <a href="login.php">Login</a> or back to <a href="index.php">Homepage</a>.</h4>
 				';
 			}
@@ -39,6 +41,7 @@
 			            <h4>You may <a href="login.php">Login</a> or back to <a href="index.php">Homepage</a>.</h4>
 					';
 				}
+				//alert button apply//
 				catch(PDOException $e){
 					$output .= '
 						<div class="alert alert-danger">
